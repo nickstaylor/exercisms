@@ -5,7 +5,7 @@ export const rows = (number) => {
   if (!number){return []}
   if (number === 1){return [[1]]}
   let newArray = [[1], [1, 1]]
-  if (number ===2){return newArray}
+  if (number === 2){return newArray}
   //start at array 2 and run until number length
   for (let i = 2; i < number; i++){
     let tempArray = [1]
