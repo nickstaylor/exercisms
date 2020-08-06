@@ -4,27 +4,36 @@
 //
 
 export class LinkedList {
-  push() {
-    throw new Error("Remove this statement and implement this function");
+  constructor() {
+    this.list = []
+  }
+  push(num) {
+    this.list.push(num)
   }
 
   pop() {
-    throw new Error("Remove this statement and implement this function");
+   return this.list.pop()
   }
 
   shift() {
-    throw new Error("Remove this statement and implement this function");
+    return this.list.shift()
   }
 
-  unshift() {
-    throw new Error("Remove this statement and implement this function");
+  unshift(num) {
+    return this.list.unshift(num)
   }
 
-  delete() {
-    throw new Error("Remove this statement and implement this function");
+  delete(num) {
+    this.list.forEach(item => {
+      if (num === item && this.list.indexOf(num) === this.list.indexOf(item)) {
+        const value = this.list.indexOf(item)
+        this.list.splice(value, 1)
+      }
+    })
+    return this.list
   }
 
   count() {
-    throw new Error("Remove this statement and implement this function");
+    return this.list.length
   }
 }
