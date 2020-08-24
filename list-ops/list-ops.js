@@ -12,23 +12,21 @@ export class List {
     if (!list.list) {
       return { list: this.list }
     }
-    else {
-        return { values: this.list.concat(list.list) }
-      }
+      return { values: this.list.concat(list.list) }
     }
 
   concat(list) {
     if (!list.list && !this.list){
       return { values: [] }
     }
-    else {
-      let array = []
-      list.list.forEach(item => {
-        array.push(item.list)
-      });
-      array.unshift(this.list)
-      return { values: array.flat()}
-    }
+
+    let array = []
+    list.list.forEach(item => {
+      array.push(item.list)
+    });
+    array.unshift(this.list)
+    return { values: array.flat()}
+
   }
 
   filter() {
@@ -44,41 +42,57 @@ export class List {
   map() {
     if (!this.list){
       return {values: []}
-    } else {
-      let array = []
-      this.list.forEach(item => {
-        let newItem = item + 1
-          array.push(newItem)
-      })
+    }
+    let array = []
+    this.list.forEach(item => {
+      let newItem = item + 1
+        array.push(newItem)
+    })
     return {values: array}
-  }
+
   }
 
 
   length() {
     if (!this.list) {
       return 0
-    } else {
-    return this.list.length
     }
+    return this.list.length
+
   }
 
-  foldl() {
-    throw new Error("Remove this statement and implement this function");
+
+  foldl(func, folds) {
+    if (!this.list) {
+      return folds
+    }
+    let acc = folds
+      this.list.forEach(item => {
+        acc = func(acc, item)
+      })
+    return acc
   }
 
-  foldr() {
-    throw new Error("Remove this statement and implement this function");
+  foldr(func, folds) {
+    if (!this.list) {
+      return folds
+    }
+    let acc = folds
+    let newList = this.list.reverse()
+      newList.forEach(item => {
+        acc = func(acc, item)
+      })
+    return acc
   }
 
   reverse() {
     if (!this.list){
       return {values: []}
-    } else {
-      let array = []
-      this.list.forEach(item => {
-          array.unshift(item)
-      })
+    }
+    let array = []
+    this.list.forEach(item => {
+        array.unshift(item)
+    })
     return {values: array}
-  }  }
+  }
 }
