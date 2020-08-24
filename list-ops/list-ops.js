@@ -32,15 +32,35 @@ export class List {
   }
 
   filter() {
-    throw new Error("Remove this statement and implement this function");
+    let array = []
+    this.list.forEach(item => {
+      if (item % 2 === 1){
+        array.push(item)
+      }
+    })
+    return {values: array}
   }
 
   map() {
-    throw new Error("Remove this statement and implement this function");
+    if (!this.list){
+      return {values: []}
+    } else {
+      let array = []
+      this.list.forEach(item => {
+        let newItem = item + 1
+          array.push(newItem)
+      })
+    return {values: array}
+  }
   }
 
+
   length() {
-    throw new Error("Remove this statement and implement this function");
+    if (!this.list) {
+      return 0
+    } else {
+    return this.list.length
+    }
   }
 
   foldl() {
@@ -52,6 +72,13 @@ export class List {
   }
 
   reverse() {
-    throw new Error("Remove this statement and implement this function");
-  }
+    if (!this.list){
+      return {values: []}
+    } else {
+      let array = []
+      this.list.forEach(item => {
+          array.unshift(item)
+      })
+    return {values: array}
+  }  }
 }
