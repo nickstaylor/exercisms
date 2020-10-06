@@ -1,6 +1,9 @@
 // This is only a SKELETON file for the 'Robot Name' exercise. It's been
 // provided as a convenience to get your started writing code faster.
 
+
+"use strict";
+
 export class Robot {
     constructor() {
         this.allNames = [];
@@ -20,7 +23,9 @@ export class Robot {
     }
 
     getNewName() {
+        this.name = ''
         let name = this.makeRandomName()
+        // console.log(name);
         if (this.allNames.includes(name)) {
           return this.getNewName()
         } else {
